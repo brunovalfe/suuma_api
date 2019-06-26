@@ -6,6 +6,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+
 class User extends Authenticatable
 {
     use Notifiable;
@@ -16,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'email', 'password', 'range', 'check_privacy', 'first_time', 'isActive'
     ];
 
     /**
@@ -25,15 +26,27 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password'
     ];
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+
+    public function groups(){
+        return $this->belongsToMany(Group::class, 'group_user');
+    }
+
+    public function sessions(){
+        return $this->hasMany(Session::class);
+    }
+
+    public function profile(){
+        return $this->hasOne(Profile::class);
+    }
+
+    public function guards(){
+        return $this->hasMany(Guard::class);
+    }
+
+    public function guard_user(){
+        return $this->belongsToMany(Guard::class, 'guard_user');
+    }
 }
