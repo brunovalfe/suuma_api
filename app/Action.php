@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Action extends Model
 {
     protected  $fillable = [
-        'name', 'permission', 'description'
+        'name', 'permission', 'description', 'resource', 'isActive'
     ];
 
     public function group(){
