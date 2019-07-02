@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Http\Requests\RegisterAuthRequest;
 use JWTAuth;
+use Exception;
 use Tymon\JWTAuth\Exceptions\JWTException;
 
 class ApiController extends Controller
@@ -53,6 +54,8 @@ class ApiController extends Controller
     }
 
     public function logout(Request $request){
+
+        // TODO: Improve response for checking the token
 
 //        $this->validate($request, [
 //            'token' => 'required'

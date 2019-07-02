@@ -2,15 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Profile;
 use Illuminate\Http\Request;
 use JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
-use App\Http\Requests\ProfileStoreRequest;
-use Illuminate\Support\Facades\Log;
+use App\Group;
 
-
-class ProfileController extends Controller
+class GroupController extends Controller
 {
 
     protected $user;
@@ -24,6 +21,17 @@ class ProfileController extends Controller
                     'status' => 'error',
                     'message' => 'User not found'
                 ], 404);
+            }
+            // Check if Admin exists
+            // Might exists only one type of user attached
+            if(!$this->user->groups[0]->name == 'admin'){
+                return response()->json([
+                    'status' => 'error',
+                    'message' => 'Not allowed'
+                ], 401);
+            }
+            else {
+                $this->isAdmin = true;
             }
 
         }
@@ -42,7 +50,18 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        return $this->user->toArray();
+//        $user = $this->user;
+//        $user->groups = $this->user->groups;
+
+        $groups = Group::all();
+
+        return response()->json([
+           'status' => 'Ok',
+           'message' => 'Groups',
+           'data' => $groups->toArray()
+        ]);
+
+
     }
 
     /**
@@ -61,16 +80,9 @@ class ProfileController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ProfileStoreRequest $request)
+    public function store(Request $request)
     {
-
-        // TODO: This is not working
-        $info = $request->validated();
-        Log::debug($request);
-
-        return response()->json([
-           'data' => $info
-        ]);
+        //
     }
 
     /**
