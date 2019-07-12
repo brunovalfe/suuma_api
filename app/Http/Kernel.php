@@ -42,6 +42,10 @@ class Kernel extends HttpKernel
             'throttle:60,1',
             'bindings',
         ],
+
+        'cors' => [
+            \Barryvdh\Cors\HandleCors::class,
+        ]
     ];
 
     /**
@@ -62,6 +66,7 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'auth.jwt' => \Tymon\JWTAuth\Http\Middleware\Authenticate::class,
+        'isActive' => \App\Http\Middleware\isActive::class,
     ];
 
     /**

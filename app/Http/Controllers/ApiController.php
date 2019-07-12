@@ -3,15 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
+use App\Models\User;
 use App\Http\Requests\RegisterAuthRequest;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use JWTAuth;
-use Exception;
 use Tymon\JWTAuth\Exceptions\JWTException;
+use App\SuumaResponse;
 
 class ApiController extends Controller
 {
-    public $loginAfterSignUp = true;
+    public $loginAfterSignUp = false;
+
+    protected $auth;
 
     public function register(RegisterAuthRequest $request){
 
@@ -38,18 +42,40 @@ class ApiController extends Controller
 
         $input = $request->only('email', 'password');
         $jwt_token = null;
+        $res = null;
 
         if (!$jwt_token = JWTAuth::attempt($input)) {
-            return response()->json([
-                'success' => false,
-                'message' => 'Invalid Email or Password',
-            ], 401);
+            $res = new SuumaResponse(
+                200,
+                "Error",
+                "user_wrong-user-password",
+                401,
+                "Usuario o contraseña incorrecto."
+                );
+            return response()->json($res->getResponse()[0]);
         }
 
-        return response()->json([
-            'success' => true,
-            'token' => $jwt_token
-        ]);
+        if ($this->isUserActive(Auth::user())) {
+            $res = new SuumaResponse(
+                200,
+                "OK",
+                "",
+                200,
+                "Login Successful", [
+                "token" => $jwt_token
+            ]);
+            return response()->json($res->getResponse()[0]);
+        }
+        else {
+            $res = new SuumaResponse(
+                200,
+                "Error",
+                "user_not-active",
+                401,
+                "Usuario no activo.");
+            return response()->json($res->getResponse()[0]);
+        }
+
 
     }
 
@@ -57,12 +83,7 @@ class ApiController extends Controller
 
         // TODO: Improve response for checking the token
 
-//        $this->validate($request, [
-//            'token' => 'required'
-//        ]);
-
         try {
-//            JWTAuth::invalidate($request->token);
             JWTAuth::invalidate($request->bearerToken());
 
             return response()->json([
@@ -79,16 +100,44 @@ class ApiController extends Controller
 
     }
 
+    public function refresh(Request $request){
+        try {
+
+            $jwt = JWTAuth::refresh($request->bearerToken());
+
+            return response()->json([
+                'success' => true,
+                'message' => $jwt
+            ], 200);
+
+        } catch (JWTException $e) {
+            return response()->json([
+                'success' => false,
+                'message' => $e
+            ], 500);
+        }
+    }
+
     public function getAuthUser(Request $request) {
 
-//        $this->validate($request, [
-//            'token' => 'required'
-//        ]);
         $token = $request->bearerToken();
 
         $user = JWTAuth::authenticate($token);
 
         return response()->json([ 'user' => $user ]);
+    }
+
+    public function welcome(Request $request){
+        return response()->json(
+            ['message' => 'Welcome to SUUMA API v1.0']
+        );
+    }
+
+    protected function isUserActive($user){
+        if ($user->isActive == 0){
+            return false;
+        }
+        return true;
     }
 
 }
