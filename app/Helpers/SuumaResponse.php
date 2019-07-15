@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App;
+namespace App\Helpers;
 
 
 use Illuminate\Http\Response;

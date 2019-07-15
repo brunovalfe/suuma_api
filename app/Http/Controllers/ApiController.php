@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
-use App\SuumaResponse;
+use App\Helpers\SuumaResponse;
 
 class ApiController extends Controller
 {
@@ -62,7 +62,8 @@ class ApiController extends Controller
                 "",
                 200,
                 "Login Successful", [
-                "token" => $jwt_token
+                "token" => $jwt_token,
+                "user" => Auth::user()
             ]);
             return response()->json($res->getResponse()[0]);
         }
@@ -124,7 +125,11 @@ class ApiController extends Controller
 
         $user = JWTAuth::authenticate($token);
 
-        return response()->json([ 'user' => $user ]);
+        return response()->json([
+            'data' => [
+                'user' => $user
+            ]
+        ]);
     }
 
     public function welcome(Request $request){

@@ -27,6 +27,12 @@ Route::group(['middleware' => ['auth.jwt', 'cors', 'isActive']], function(){
 
     Route::get('profile', 'ProfileController@index');
     Route::post('profile', 'ProfileController@store');
+    Route::patch('profile/{id}/photo', 'ProfileController@update');
 
     Route::get('group', 'GroupController@index');
+
+
+    // Admin features:
+    Route::get('aprobar/usuarios', 'AdminPowers@index');
+    Route::patch('aprobar/usuarios/{id}', 'AdminPowers@update');
 });

@@ -2,39 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Profile;
 use Illuminate\Http\Request;
-use JWTAuth;
-use Tymon\JWTAuth\Exceptions\JWTException;
-use App\Http\Requests\ProfileStoreRequest;
+use App\Models\User;
+use App\Helpers\SuumaResponse;
 use Illuminate\Support\Facades\Log;
 
-
-class ProfileController extends Controller
+class AdminPowers extends Controller
 {
-
-    protected $user;
-    protected $isAdmin;
-
-    public function __construct()
-    {
-        try{
-            if(!($this->user = JWTAuth::parseToken()->authenticate())){
-                return response()->json([
-                    'status' => 'error',
-                    'message' => 'User not found'
-                ], 404);
-            }
-
-        }
-        catch (JWTException $ex) {
-            return response()->json([
-                'status' => 'error',
-                'message' => 'Token Absent'
-            ], 401);
-        }
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -42,7 +16,17 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        return $this->user->toArray();
+        // $notActiveUsers = User::where('isActive', 0)->get();
+        $notActiveUsers = User::all();
+        $res = new SuumaResponse(
+            200,
+            "OK",
+            "",
+            200,
+            "Usuarios No activos",
+            $notActiveUsers
+        );
+        return response()->json($res->getResponse()[0]);
     }
 
     /**
@@ -61,16 +45,9 @@ class ProfileController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ProfileStoreRequest $request)
+    public function store(Request $request)
     {
-
-        // TODO: This is not working
-        $info = $request->validated();
-        Log::debug($request);
-
-        return response()->json([
-           'data' => $info
-        ]);
+        //
     }
 
     /**
@@ -104,8 +81,25 @@ class ProfileController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // Upload file
+        $user = User::find($id);
+        // Modificable: isActive, instructor, operator, service_chief, range
+        $user->isActive = ($request->isActive === true) ? 1 : 0 ;
+        $user->instructor = ($request->instructor === true) ? 1 : 0;
+        $user->operator = ($request->operator === true) ? 1 : 0;
+        $user->service_chief = ($request->service_chief === true) ? 1 : 0;
+        $user->range = $request->range;
+        $user->save();
 
+        $res = new SuumaResponse(
+            200,
+            'OK',
+            '',
+            200,
+            "Actualizado con éxito",
+            $user
+        );
+
+        return response()->json($res->getResponse()[0]);
     }
 
     /**
