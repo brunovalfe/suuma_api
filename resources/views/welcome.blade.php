@@ -111,26 +111,26 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,700,800,900" rel=stylesheet>
     <link rel=stylesheet href=https://use.fontawesome.com/releases/v5.7.0/css/all.css
           integrity=sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ crossorigin=anonymous>
-    <link href="{{ asset('dist/css/chunk-002bffb4.7e3193e5.css') }}" rel=prefetch>
-    <link href="{{ asset('dist/css/chunk-0ebb692e.98e75ce8.css') }}" rel=prefetch>
-    <link href="{{ asset('dist/css/chunk-210b2ab0.56fa7ecc.css') }}" rel=prefetch>
-    <link href="{{ asset('dist/css/chunk-2473b2c8.4fea3741.css') }}" rel=prefetch>
-    <link href="{{ asset('dist/css/chunk-64dcd9d2.f78c98c3.css') }}" rel=prefetch>
-    <link href="{{ asset('dist/css/chunk-6fe86800.45cdff3d.css') }}" rel=prefetch>
-    <link href="{{ asset('dist/css/chunk-7ac6ce93.c9386f83.css') }}" rel=prefetch>
-    <link href="{{ asset('dist/css/chunk-ab2489fa.965076d5.css') }}" rel=prefetch>
-    <link href="{{ asset('dist/css/chunk-b5197f6e.dd142320.css') }}" rel=prefetch>
-    <link href="{{ asset('dist/js/chunk-002bffb4.88efa0ee.js') }}" rel=prefetch>
-    <link href="{{ asset('dist/js/chunk-0ebb692e.3d84036b.js') }}" rel=prefetch>
-    <link href="{{ asset('dist/js/chunk-210b2ab0.7bded023.js') }}" rel=prefetch>
-    <link href="{{ asset('dist/js/chunk-2473b2c8.16a802a4.js') }}" rel=prefetch>
-    <link href="{{ asset('dist/js/chunk-2d207d33.027d2417.js') }}" rel=prefetch>
-    <link href="{{ asset('dist/js/chunk-2d22253a.d39d8e49.js') }}" rel=prefetch>
-    <link href="{{ asset('dist/js/chunk-64dcd9d2.ffe20a16.js') }}" rel=prefetch>
-    <link href="{{ asset('dist/js/chunk-6fe86800.733ee9ce.js') }}" rel=prefetch>
-    <link href="{{ asset('dist/js/chunk-7ac6ce93.691fc990.js') }}" rel=prefetch>
-    <link href="{{ asset('dist/js/chunk-ab2489fa.4620db49.js') }}" rel=prefetch>
-    <link href="{{ asset('dist/js/chunk-b5197f6e.323bfcee.js') }}" rel=prefetch>
+    <link href="{{ asset('dist/css/chunk-002bffb4.7e3193e5.css') }}">
+    <link href="{{ asset('dist/css/chunk-0ebb692e.98e75ce8.css') }}">
+    <link href="{{ asset('dist/css/chunk-210b2ab0.56fa7ecc.css') }}">
+    <link href="{{ asset('dist/css/chunk-2473b2c8.4fea3741.css') }}">
+    <link href="{{ asset('dist/css/chunk-64dcd9d2.f78c98c3.css') }}">
+    <link href="{{ asset('dist/css/chunk-6fe86800.45cdff3d.css') }}">
+    <link href="{{ asset('dist/css/chunk-7ac6ce93.c9386f83.css') }}">
+    <link href="{{ asset('dist/css/chunk-ab2489fa.965076d5.css') }}">
+    <link href="{{ asset('dist/css/chunk-b5197f6e.dd142320.css') }}">
+    <link href="{{ asset('dist/js/chunk-002bffb4.88efa0ee.js') }}">
+    <link href="{{ asset('dist/js/chunk-0ebb692e.3d84036b.js') }}">
+    <link href="{{ asset('dist/js/chunk-210b2ab0.7bded023.js') }}">
+    <link href="{{ asset('dist/js/chunk-2473b2c8.16a802a4.js') }}">
+    <link href="{{ asset('dist/js/chunk-2d207d33.027d2417.js') }}">
+    <link href="{{ asset('dist/js/chunk-2d22253a.d39d8e49.js') }}">
+    <link href="{{ asset('dist/js/chunk-64dcd9d2.ffe20a16.js') }}">
+    <link href="{{ asset('dist/js/chunk-6fe86800.733ee9ce.js') }}">
+    <link href="{{ asset('dist/js/chunk-7ac6ce93.691fc990.js') }}">
+    <link href="{{ asset('dist/js/chunk-ab2489fa.4620db49.js') }}">
+    <link href="{{ asset('dist/js/chunk-b5197f6e.323bfcee.js') }}">
     <link href="{{ asset('dist/css/app.222c3cf5.css') }}" rel=preload as=style>
     <link href="{{ asset('dist/css/chunk-vendors.3684d323.css') }}" rel=preload as=style>
     <link href="{{ asset('dist/js/app.b711b25e.js') }}" rel=preload as=script>
