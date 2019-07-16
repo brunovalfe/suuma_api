@@ -105,7 +105,7 @@
     <meta charset=utf-8>
     <meta http-equiv=X-UA-Compatible content="IE=edge">
     <meta name=viewport content="width=device-width,initial-scale=1">
-    <link rel=icon type=image/jpg href=./dist/favicon.ico> <title>Suuma Intranet</title>
+    <link rel=icon type=image/jpg href="{{ asset('/dist/favicon.ico') }}"> <title>Suuma Intranet</title>
     <link rel=stylesheet href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900">
     <link rel=stylesheet href="https://fonts.googleapis.com/css?family=Material+Icons">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,700,800,900" rel=stylesheet>
