@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\SuumaResponse;
 use App\Models\Profile;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\File;
+use Intervention\Image\Facades\Image;
 use JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use App\Http\Requests\ProfileStoreRequest;
@@ -42,7 +46,16 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        return $this->user->toArray();
+        $profile = $this->user->profile;
+        $res = new SuumaResponse(
+            200,
+            'OK',
+            '',
+            200,
+            'Información de Usuario',
+            $profile
+        );
+        return response()->json($res->getResponse()[0]);
     }
 
     /**
@@ -71,6 +84,62 @@ class ProfileController extends Controller
         return response()->json([
            'data' => $info
         ]);
+    }
+
+    public function savePhoto(Request $request){
+        // Pseudocode
+        // 1. Revisar si no hay foto previa SI HAY eliminar
+        // 2. Obtener la imagen
+        // 3. Obtener el perfil y guardar la ruta nueva
+        // 4. Regresar la ruta
+
+        Log::debug($request);
+
+        $profile = $this->user->profile;
+        if ($profile->photo != null || $profile->photo == ""){
+            if(File::exists($profile->photo)) {
+                File::delete($profile->photo);
+            }
+        }
+
+        $randomName = Str::random(16);
+        $extension = $request->file('photo')->getClientOriginalExtension();
+        $filename = $randomName . '.' . $extension;
+
+        $path = $request->file('photo')->move(public_path('images/'), $filename);
+        $photoURL = 'images/' . $filename;
+
+
+        $profile->photo = $photoURL;
+        $profile->save();
+
+        $response = new SuumaResponse(
+            200,
+            'OK',
+            '',
+            200,
+            'Foto subida con éxito',
+            [
+                "url" => $photoURL
+            ]
+        );
+
+        return response()->json($response->getResponse()[0]);
+
+    }
+
+    public function retrievePhoto(Request $request){
+        $profile = $this->user->profile;
+        $default = 'images/default.png';
+        if ($profile->photo == null || $profile->photo == ""){
+            $img = Image::make($default)->encode('data-url');
+        }
+        else{
+             if(File::exists($profile->photo)) {
+                 $img = Image::make($profile->photo)->encode('data-url');
+        }    }                                   
+
+        return $img->response('data-url');
     }
 
     /**
@@ -104,9 +173,114 @@ class ProfileController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // Upload file
+        $profile = Profile::find($id);
+        $profile->name = $request->name;
+        $profile->appat = $request->appat;
+        $profile->apmat = $request->apmat;
+        $profile->date_birth = $request->date_birth;
+        $profile->blood_type = $request->blood_type;
+        $profile->CURP = $request->CURP;
+        $profile->tel_contact = $request->tel_contact;
+        $profile->tel_contact_2 = $request->tel_contact_2;
 
+        $profile->save();
+
+        $res = new SuumaResponse(
+            200,
+            'OK',
+            '',
+            200,
+            'Perfil Actualizado correctamente',
+            $profile
+        );
+
+        return response()->json($res->getResponse()[0]);
     }
+
+    public function updateEC(Request $request, $id){
+        $profile = Profile::find($id);
+        $profile->ec_name = $request->name;
+        $profile->ec_appat = $request->appat;
+        $profile->ec_apmat = $request->apmat;
+        $profile->ec_relationship = $request->relationship;
+        $profile->ec_telephone = $request->telephone;
+
+        $profile->save();
+
+        $res = new SuumaResponse(
+            200,
+            'OK',
+            '',
+            200,
+            'Contacto de emergencia actualizado correctamente',
+            $profile
+        );
+
+        return response()->json($res->getResponse()[0]);
+    }
+
+    public function updateDirection(Request $request, $id){
+        $profile = Profile::find($id);
+        $profile->dir_street = $request->street;
+        $profile->dir_state = $request->state;
+        $profile->dir_pc = $request->postal_code;
+        $profile->dir_col = $request->suburb;
+
+        $profile->save();
+
+        $res = new SuumaResponse(
+            200,
+            'OK',
+            '',
+            200,
+            'Direccion actualizada correctamente',
+            $profile
+        );
+
+        return response()->json($res->getResponse()[0]);
+    }
+
+    public function updateFiscal(Request $request, $id){
+        $profile = Profile::find($id);
+        $profile->fis_business_name = $request->business_name;
+        $profile->fis_dir_fiscal = $request->direction;
+        $profile->fis_RFC = $request->RFC;
+        $profile->fis_email = $request->email;
+
+        $profile->save();
+
+        $res = new SuumaResponse(
+            200,
+            'OK',
+            '',
+            200,
+            'Direccion actualizada correctamente',
+            $profile
+        );
+
+        return response()->json($res->getResponse()[0]);
+    }
+
+    public function updateExtras(Request $request, $id){
+        $profile = Profile::find($id);
+        $profile->generation = $request->generation;
+        $profile->BLS_exp = $request->exp_BLS;
+
+        $profile->save();
+
+        $res = new SuumaResponse(
+            200,
+            'OK',
+            '',
+            200,
+            'Direccion actualizada correctamente',
+            $profile
+        );
+
+        return response()->json($res->getResponse()[0]);
+    }
+
+
 
     /**
      * Remove the specified resource from storage.

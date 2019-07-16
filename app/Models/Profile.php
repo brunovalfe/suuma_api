@@ -7,11 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Profile extends Model
 {
     protected $fillable = [
-        'name', 'appat', 'apmat', 'rango', 'date_birth', 'blood_type', 'CURP', 'tel_contact', 'tel_contact_2',
+        'name', 'appat', 'apmat', 'date_birth', 'blood_type', 'CURP', 'tel_contact', 'tel_contact_2',
         'ec_name', 'ec_appat', 'ec_apmat', 'ec_relationship',
         'dir_street', 'dir_state', 'dir_col', 'dir_pc',
         'fis_business_name', 'fis_dir_fiscal', 'fis_RFC', 'fis_email',
-        'generation', 'BLS_exp'
+        'generation', 'BLS_exp', 'photo'
     ];
 
     public function user(){

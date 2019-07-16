@@ -36,6 +36,9 @@ class RegisterAuthRequest extends FormRequest
                 Rule::in(['TAM', 'CP']),
             ],
             'check_privacy' => 'required|integer',
+            'name' => 'required|string',
+            'appat' => 'required|string',
+            'apmat' => 'required|string',
         ];
     }
 
@@ -53,7 +56,10 @@ class RegisterAuthRequest extends FormRequest
             'password.max' => 'Máximo 20 caracteres.',
 
             'range.in' => 'Tiene que ser del tipo de rango TAM o CP.',
-            'check_privacy.required' => 'No se puede registrar sino acepta el aviso.'
+            'check_privacy.required' => 'No se puede registrar sino acepta el aviso.',
+            'name.required' => 'Se necesita nombre para identificar al usuario',
+            'appat.required' => 'Necesario el Apellido Paterno',
+            'appat.apmat' => 'Necesario el Apellido Materno',
         ];
     }
 

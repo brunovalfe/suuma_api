@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Profile;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Http\Requests\RegisterAuthRequest;
@@ -26,6 +27,12 @@ class ApiController extends Controller
         $user->check_privacy = $request->check_privacy;
 
         $user->save();
+
+        $profile = new Profile();
+        $profile->name = $request->name;
+        $profile->appat = $request->appat;
+        $profile->apmat = $request->apmat;
+        $user->profile()->save($profile);
 
         if($this->loginAfterSignUp) {
             return $this->login($request);
@@ -55,6 +62,9 @@ class ApiController extends Controller
             return response()->json($res->getResponse()[0]);
         }
 
+        $user = Auth::user();
+        $user->profile = $user->profile;
+
         if ($this->isUserActive(Auth::user())) {
             $res = new SuumaResponse(
                 200,
@@ -63,7 +73,7 @@ class ApiController extends Controller
                 200,
                 "Login Successful", [
                 "token" => $jwt_token,
-                "user" => Auth::user()
+                "user" => $user
             ]);
             return response()->json($res->getResponse()[0]);
         }
