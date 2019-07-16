@@ -2,8 +2,8 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use App\Group;
-use App\Action;
+use App\Models\Group;
+use App\Models\Action;
 
 class ActionsSeeder extends Seeder
 {
