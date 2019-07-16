@@ -2,6 +2,47 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7ee561c6-dc67-4c55-97ef-484b09599c9f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/dist/css/app.222c3cf5.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/dist/css/chunk-002bffb4.7e3193e5.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/dist/css/chunk-0ebb692e.98e75ce8.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/dist/css/chunk-210b2ab0.56fa7ecc.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/dist/css/chunk-2473b2c8.4fea3741.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/dist/css/chunk-64dcd9d2.f78c98c3.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/dist/css/chunk-6fe86800.45cdff3d.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/dist/css/chunk-7ac6ce93.c9386f83.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/dist/css/chunk-ab2489fa.965076d5.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/dist/css/chunk-b5197f6e.dd142320.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/dist/css/chunk-vendors.3684d323.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/dist/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/dist/img/NotFound.f9d9a47b.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/dist/img/blank.b6681619.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/dist/js/app.b711b25e.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/dist/js/app.b711b25e.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/dist/js/chunk-002bffb4.88efa0ee.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/dist/js/chunk-002bffb4.88efa0ee.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/dist/js/chunk-0ebb692e.3d84036b.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/dist/js/chunk-0ebb692e.3d84036b.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/dist/js/chunk-210b2ab0.7bded023.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/dist/js/chunk-210b2ab0.7bded023.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/dist/js/chunk-2473b2c8.16a802a4.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/dist/js/chunk-2473b2c8.16a802a4.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/dist/js/chunk-2d207d33.027d2417.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/dist/js/chunk-2d207d33.027d2417.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/dist/js/chunk-2d22253a.d39d8e49.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/dist/js/chunk-2d22253a.d39d8e49.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/dist/js/chunk-64dcd9d2.ffe20a16.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/dist/js/chunk-64dcd9d2.ffe20a16.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/dist/js/chunk-6fe86800.733ee9ce.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/dist/js/chunk-6fe86800.733ee9ce.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/dist/js/chunk-7ac6ce93.691fc990.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/dist/js/chunk-7ac6ce93.691fc990.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/dist/js/chunk-ab2489fa.4620db49.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/dist/js/chunk-ab2489fa.4620db49.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/dist/js/chunk-b5197f6e.323bfcee.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/dist/js/chunk-b5197f6e.323bfcee.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/dist/js/chunk-vendors.6ed8b563.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/dist/js/chunk-vendors.6ed8b563.js.map" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,8 +67,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/welcome.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="416">
-              <caret line="107" column="50" lean-forward="true" selection-start-line="107" selection-start-column="50" selection-end-line="107" selection-end-column="50" />
+            <state relative-caret-position="513">
+              <caret line="144" column="44" selection-start-line="144" selection-start-column="44" selection-end-line="144" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -237,6 +278,11 @@
             <path>
               <item name="suuma_data_api" type="b2602c69:ProjectViewProjectNode" />
               <item name="suuma_data_api" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="suuma_data_api" type="b2602c69:ProjectViewProjectNode" />
+              <item name="suuma_data_api" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -328,12 +374,12 @@
       <workItem from="1563030562554" duration="348000" />
       <workItem from="1563076362933" duration="1628000" />
       <workItem from="1563120960430" duration="5311000" />
-      <workItem from="1563204526230" duration="14446000" />
+      <workItem from="1563204526230" duration="15001000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="94455000" />
+    <option name="totallyTimeSpent" value="95010000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -341,9 +387,9 @@
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info id="npm" order="1" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="2" sideWeight="0.49840257" visible="true" weight="0.20314735" />
+      <window_info active="true" content_ui="combo" id="Project" order="2" sideWeight="0.49840257" visible="true" weight="0.20314735" />
       <window_info id="Structure" order="3" sideWeight="0.50159746" side_tool="true" weight="0.20100144" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="0" sideWeight="0.49928468" visible="true" weight="0.24578314" />
+      <window_info anchor="bottom" id="Terminal" order="0" sideWeight="0.49928468" visible="true" weight="0.24578314" />
       <window_info anchor="bottom" id="Database Changes" order="1" />
       <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.5007153" side_tool="true" weight="0.24578314" />
       <window_info anchor="bottom" id="Version Control" order="3" />
@@ -387,20 +433,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Models/Group.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="21" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/Guard.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="21" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/Insurance.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -745,10 +777,16 @@
     <entry file="file://$PROJECT_DIR$/resources/js/components/ExampleComponent.vue">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/favicon.ico">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/welcome.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="107" column="50" lean-forward="true" selection-start-line="107" selection-start-column="50" selection-end-line="107" selection-end-column="50" />
+        <state relative-caret-position="513">
+          <caret line="144" column="44" selection-start-line="144" selection-start-column="44" selection-end-line="144" selection-end-column="44" />
         </state>
       </provider>
     </entry>
