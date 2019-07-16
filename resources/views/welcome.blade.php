@@ -133,7 +133,7 @@
     <link href="{{ asset('dist/js/chunk-b5197f6e.323bfcee.js') }}">
     <link href="{{ asset('dist/css/app.222c3cf5.css') }}" as=style>
     <link href="{{ asset('dist/css/chunk-vendors.3684d323.css') }}" as=style>
-    <link href="{{ asset('dist/js/app.b711b25e.js') }}" as=script>
+    <link href="{{ asset('dist/js/app.be27f4ca.js') }}" as=script>
     <link href="{{ asset('dist/js/chunk-vendors.6ed8b563.js') }}" as=script>
     <link href="{{ asset('dist/css/chunk-vendors.3684d323.css') }}" rel=stylesheet>
     <link href="{{ asset('dist/css/app.222c3cf5.css') }}" rel=stylesheet>
@@ -142,6 +142,6 @@
 <body><noscript><strong>We're sorry but suuma doesn't work properly without JavaScript enabled. Please enable it to
         continue.</strong></noscript>
 <div id=app></div>
-<script src="{{ asset('dist/js/chunk-vendors.6ed8b563.js') }}"> </script> <script src="{{ asset('dist/js/app.b711b25e.js') }}"> </script>
+<script src="{{ asset('dist/js/chunk-vendors.6ed8b563.js') }}"> </script> <script src="{{ asset('dist/js/app.be27f4ca.js') }}"> </script>
 </body>
 </html>
