@@ -131,10 +131,10 @@
     <link href="{{ asset('dist/js/chunk-7ac6ce93.691fc990.js') }}">
     <link href="{{ asset('dist/js/chunk-ab2489fa.4620db49.js') }}">
     <link href="{{ asset('dist/js/chunk-b5197f6e.323bfcee.js') }}">
-    <link href="{{ asset('dist/css/app.222c3cf5.css') }}" rel=preload as=style>
-    <link href="{{ asset('dist/css/chunk-vendors.3684d323.css') }}" rel=preload as=style>
-    <link href="{{ asset('dist/js/app.b711b25e.js') }}" rel=preload as=script>
-    <link href="{{ asset('dist/js/chunk-vendors.6ed8b563.js') }}" rel=preload as=script>
+    <link href="{{ asset('dist/css/app.222c3cf5.css') }}" as=style>
+    <link href="{{ asset('dist/css/chunk-vendors.3684d323.css') }}" as=style>
+    <link href="{{ asset('dist/js/app.b711b25e.js') }}" as=script>
+    <link href="{{ asset('dist/js/chunk-vendors.6ed8b563.js') }}" as=script>
     <link href="{{ asset('dist/css/chunk-vendors.3684d323.css') }}" rel=stylesheet>
     <link href="{{ asset('dist/css/app.222c3cf5.css') }}" rel=stylesheet>
 </head>
