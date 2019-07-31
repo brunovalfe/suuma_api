@@ -63,7 +63,19 @@ class ApiController extends Controller
         }
 
         $user = Auth::user();
+
+        // Add profile
         $user->profile = $user->profile;
+
+        // Add groups
+        $raw_groups = $user->groups;
+        $groups = [];
+
+        foreach ($raw_groups as $group) {
+            array_push($groups, $group['name']);
+        }
+
+        $user->roles = $groups;
 
         if ($this->isUserActive(Auth::user())) {
             $res = new SuumaResponse(

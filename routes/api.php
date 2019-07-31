@@ -25,8 +25,11 @@ Route::group(['middleware' => ['auth.jwt', 'cors', 'isActive']], function(){
 
     Route::get('user', 'ApiController@getAuthUser');
 
+    // Basic user info
     Route::get('profile', 'ProfileController@index');
     Route::post('profile', 'ProfileController@store');
+    Route::get('profile/{id}/groups', 'ProfileController@retrieveGroups'); // Admin
+    Route::patch('profile/{id}/groups', 'ProfileController@updateGroups'); // Admin
 
     Route::get('profile/photo', 'ProfileController@retrievePhoto');
     Route::post('profile/photo', 'ProfileController@savePhoto');

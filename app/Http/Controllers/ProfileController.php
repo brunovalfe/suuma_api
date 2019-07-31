@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Helpers\SuumaResponse;
 use App\Models\Profile;
+use App\Models\User;
+use App\Models\Group;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\File;
@@ -140,6 +143,61 @@ class ProfileController extends Controller
         }    }                                   
 
         return $img->response('data-url');
+    }
+
+    public function retrieveGroups(Request $request, $id){
+
+        try{
+            $user = User::where('id', $id)->first();
+
+            $roles = $user->groups;
+            $response = new SuumaResponse(
+                200,
+                'OK',
+                '',
+                200,
+                'Roles de usuario',
+                $roles
+            );
+
+            return response()->json($response->getResponse()[0]);
+        }
+        catch(\Exception $e){
+            Log::error($e->getMessage());
+        }
+    }
+
+    public function updateGroups(Request $request, $id){
+
+        $groups = $request->groups;
+        $ids = array();
+
+        try{
+            foreach ($groups as $group){
+                $temp = Group::where('name', $group['name'])->first();
+                $group['id'] = $temp->id;
+                array_push($ids, $temp->id);
+            }
+            $user = User::where('id', $id)->first();
+            $user->groups()->sync($ids);
+
+            $response = new SuumaResponse(
+                200,
+                'OK',
+                '',
+                200,
+                'Roles de usuario actualizados',
+                $user->groups
+            );
+
+            return response()->json($response->getResponse()[0]);
+
+
+        }
+        catch( \Exception $e) {
+            Log::error($e->getMessage());
+        }
+
     }
 
     /**

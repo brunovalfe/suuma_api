@@ -10,8 +10,12 @@ class Group extends Model
         'name', 'description'
     ];
 
+    protected $hidden = [
+        'pivot'
+    ];
+
     public function users(){
-        return $this->belongsToMany(User::class, 'group_user');
+        return $this->belongsToMany(User::class, 'group_user')->withTimestamps();
     }
 
     public function actions(){

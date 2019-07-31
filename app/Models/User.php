@@ -51,7 +51,7 @@ class User extends Authenticatable implements JWTSubject
 
 
     public function groups(){
-        return $this->belongsToMany(Group::class, 'group_user');
+        return $this->belongsToMany(Group::class, 'group_user')->withTimestamps();
     }
 
     public function sessions(){
@@ -67,6 +67,6 @@ class User extends Authenticatable implements JWTSubject
     }
 
     public function guard_user(){
-        return $this->belongsToMany(Guard::class, 'guard_user');
+        return $this->belongsToMany(Guard::class, 'guard_user')->withTimestamps();
     }
 }
