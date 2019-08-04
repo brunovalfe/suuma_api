@@ -46,6 +46,8 @@ Route::group(['middleware' => ['auth.jwt', 'cors', 'isActive']], function(){
 
     Route::get('group', 'GroupController@index');
 
+    // General features:
+    Route::get('units', 'GeneralController@showUnits');
 
     // Admin features:
     Route::get('aprobar/usuarios', 'AdminPowers@index');
