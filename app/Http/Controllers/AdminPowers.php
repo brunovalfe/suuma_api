@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Guard;
+use App\Models\Unit;
 use App\Helpers\SuumaResponse;
 use Illuminate\Support\Facades\Log;
 
@@ -29,48 +31,6 @@ class AdminPowers extends Controller
         return response()->json($res->getResponse()[0]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -102,14 +62,64 @@ class AdminPowers extends Controller
         return response()->json($res->getResponse()[0]);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+    public function showUsersInDetail(Request $request){
+        $users = User::where('isActive', 1)->get();
+        foreach ($users as $user){
+            $user->profile;
+        }
+
+        $res = new SuumaResponse(
+            200,
+            'OK',
+            '',
+            200,
+            "Usuarios y perfiles",
+            $users
+        );
+
+        return response()->json($res->getResponse()[0]);
     }
+
+    public function storeGuard(Request $request) {
+
+        $user = User::find($request->user_id);
+        $ambulance = Unit::find($request->unit_id);
+
+        // TODO: Check if the guard doesn't splice with another guard... if that happens, send an error msg
+
+        $guard = new Guard();
+        $guard->date = $request->date;
+        $guard->hour = $request->time;
+        $guard->duration = $request->duration;
+        $guard->max_quota = $request->max_quota;
+        $guard->type = $request->type;
+        $guard->description = $request->description;
+        $guard->isActive = $request->isActive;
+
+        $guard->unit()->associate($ambulance);
+        $guard->user()->associate($user);
+
+        $guard->save();
+
+        foreach ($request->crew as $personal) {
+            Log::debug($personal);
+            $guard->guard_user()->attach($personal['id'], ['role' => $personal['role'], 'isActive' => 1]);
+        }
+
+        foreach ($guard->guard_user as $user) {
+            $user->pivot->value('role');
+        }
+
+        $res = new SuumaResponse(
+            200,
+            'OK',
+            '',
+            200,
+            "Guardia creada",
+            $guard
+        );
+
+        return response()->json($res->getResponse()[0]);
+    }
+
 }

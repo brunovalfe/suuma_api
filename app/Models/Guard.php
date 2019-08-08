@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Guard extends Model
 {
     protected $fillable = [
-        'date', 'hour', 'duration', 'max_quota'
+        'date', 'hour', 'duration', 'max_quota', 'type', 'description'
     ];
 
     public function unit(){
@@ -18,7 +18,9 @@ class Guard extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function guard_users(){
-        return $this->belongsToMany(User::class, 'guard_user');
+    public function guard_user(){
+        return $this->belongsToMany(User::class, 'guard_user')
+            ->withPivot('role', 'isActive')
+            ->withTimestamps();
     }
 }

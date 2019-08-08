@@ -14,7 +14,7 @@ class GeneralController extends Controller
 {
     public function showUnits(){
 
-        $units = Unit::all();
+        $units = Unit::where('isActive', 1)->get();
         $res = new SuumaResponse(
             200,
             "OK",

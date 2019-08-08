@@ -13,15 +13,16 @@ class RoleSeeder extends Seeder
      */
     public function run()
     {
-        $users = User::all();
-        $basic_user = Group::where('name', 'basic')->first();
-        foreach ($users as $user){
-            $user->groups()->attach($basic_user->id);
-        }
+            $users = User::where('email', '!=', 'admin@suuma.com.mx')->get();
+            $basic_user = Group::where('name', 'basic')->first();
+            foreach ($users as $user){
+                $user->groups()->attach($basic_user->id);
+            }
 
-        // Admin with admin powers
-        $admin = User::where('email', 'admin@suuma.com.mx')->first();
-        $admin_role = Group::where('name', 'admin')->first;
-        $admin->groups()->attach($admin_role->id);
+            // Admin with admin powers
+            $admin = User::where('email', 'admin@suuma.com.mx')->first();
+            $admin_role = Group::where('name', 'admin')->first();
+            $admin->groups()->attach($admin_role->id);
+
     }
 }

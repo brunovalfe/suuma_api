@@ -67,6 +67,8 @@ class User extends Authenticatable implements JWTSubject
     }
 
     public function guard_user(){
-        return $this->belongsToMany(Guard::class, 'guard_user')->withTimestamps();
+        return $this->belongsToMany(Guard::class, 'guard_user')
+            ->withPivot('role', 'isActive')
+            ->withTimestamps();
     }
 }
