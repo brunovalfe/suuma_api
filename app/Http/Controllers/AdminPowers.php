@@ -63,6 +63,20 @@ class AdminPowers extends Controller
     }
 
 
+    public function deleteGuard($id){
+        $guard = Guard::find($id)->delete();
+        $res = new SuumaResponse(
+            200,
+            'OK',
+            '',
+            200,
+            "Guardia borrada exitosamente",
+            $guard
+        );
+
+        return response()->json($res->getResponse()[0]);
+    }
+
     public function showUsersInDetail(Request $request){
         $users = User::where('isActive', 1)->get();
         foreach ($users as $user){
@@ -122,5 +136,7 @@ class AdminPowers extends Controller
 
         return response()->json($res->getResponse()[0]);
     }
+
+
 
 }

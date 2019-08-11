@@ -4,7 +4,7 @@
     <list default="true" id="7ee561c6-dc67-4c55-97ef-484b09599c9f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminPowers.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminPowers.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/PlacesInGuardSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/PlacesInGuardSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/GuardsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/GuardsController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -220,7 +220,9 @@
       <workItem from="1565276073764" duration="851000" />
       <workItem from="1565363162391" duration="255000" />
       <workItem from="1565364133964" duration="382000" />
-      <workItem from="1565451576473" duration="1179000" />
+      <workItem from="1565451576473" duration="1284000" />
+      <workItem from="1565482432025" duration="838000" />
+      <workItem from="1565562997100" duration="1836000" />
     </task>
     <servers />
   </component>

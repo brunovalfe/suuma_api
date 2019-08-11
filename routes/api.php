@@ -54,10 +54,12 @@ Route::group(['middleware' => ['auth.jwt', 'cors', 'isActive']], function(){
     Route::patch('approvals/users/{id}', 'AdminPowers@update');
     Route::post('guards', 'AdminPowers@storeGuard');
     Route::get('guards/users', 'AdminPowers@showUsersInDetail');
+    Route::post('guards/{id}', 'AdminPowers@deleteGuard');
 
     // Guards
     Route::get('guards', 'GuardsController@retrieveGuards');
-
+    Route::patch('guards/{guard_id}/subscribe/{user_id}', 'GuardsController@subscribeUser');
+    Route::patch('guards/{guard_id}/unsubscribe/{user_id}', 'GuardsController@unsubscribeUser');
 
 
 
