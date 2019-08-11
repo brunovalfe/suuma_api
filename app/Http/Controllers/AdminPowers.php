@@ -62,6 +62,7 @@ class AdminPowers extends Controller
         return response()->json($res->getResponse()[0]);
     }
 
+
     public function showUsersInDetail(Request $request){
         $users = User::where('isActive', 1)->get();
         foreach ($users as $user){

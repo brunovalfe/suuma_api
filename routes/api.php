@@ -52,8 +52,13 @@ Route::group(['middleware' => ['auth.jwt', 'cors', 'isActive']], function(){
     // Admin features:
     Route::get('approvals/users', 'AdminPowers@index');
     Route::patch('approvals/users/{id}', 'AdminPowers@update');
-
     Route::post('guards', 'AdminPowers@storeGuard');
     Route::get('guards/users', 'AdminPowers@showUsersInDetail');
+
+    // Guards
+    Route::get('guards', 'GuardsController@retrieveGuards');
+
+
+
 
 });

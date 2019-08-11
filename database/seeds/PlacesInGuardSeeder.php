@@ -16,20 +16,18 @@ class PlacesInGuardSeeder extends Seeder
     {
         $guards = $this->getAllGuards();
 
-        Log::info($guards);
-
-//        foreach( $guards as $guard ){
-//            $crew = $this->assignPeople();
-//            if (isset($crew->operator)) {
-//                $guard->guard_user()->attach($crew->operator, ['role' => 'operator', 'isActive' => 1]);
-//            }
-//            if (isset($crew->service_chief)) {
-//                $guard->guard_user()->attach($crew->service_chief, ['role' => 'service_chief', 'isActive' => 1]);
-//            }
-//            foreach (range(0, count($crew->personal) - 1 ) as $person) {
-//                $guard->guard_user()->attach($crew->personal[$person], ['role' => 'personal', 'isActive' => 1]);
-//            }
-//        }
+        foreach( $guards as $guard ){
+            $crew = $this->assignPeople();
+            if (isset($crew->operator)) {
+                $guard->guard_user()->attach($crew->operator, ['role' => 'operator', 'isActive' => 1]);
+            }
+            if (isset($crew->service_chief)) {
+                $guard->guard_user()->attach($crew->service_chief, ['role' => 'service_chief', 'isActive' => 1]);
+            }
+            foreach (range(0, count($crew->personal) - 1 ) as $person) {
+                $guard->guard_user()->attach($crew->personal[$person], ['role' => 'personal', 'isActive' => 1]);
+            }
+        }
     }
 
     private function assignPeople(){
@@ -68,13 +66,6 @@ class PlacesInGuardSeeder extends Seeder
         foreach (range(0,rand(1,2)) as $person ) {
             array_push( $personal, $total_users[rand(0, count($total_users) - 1)]);
         }
-
-//        $crew = (object)
-//        [
-//            'operator' => $oid,
-//            'service_chief' => $scid,
-//            'personal' => $personal
-//        ];
 
         $crew->personal = $personal;
 
