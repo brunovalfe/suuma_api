@@ -3,9 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="7ee561c6-dc67-4c55-97ef-484b09599c9f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AdminPowers.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AdminPowers.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/GuardsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/GuardsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dist/css/app.48731d6e.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dist/css/chunk-vendors.9731b67a.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dist/js/app.3621914b.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dist/js/app.3621914b.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dist/js/chunk-vendors.726095e8.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/dist/js/chunk-vendors.726095e8.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -222,7 +227,7 @@
       <workItem from="1565364133964" duration="382000" />
       <workItem from="1565451576473" duration="1284000" />
       <workItem from="1565482432025" duration="838000" />
-      <workItem from="1565562997100" duration="1836000" />
+      <workItem from="1565562997100" duration="2326000" />
     </task>
     <servers />
   </component>
