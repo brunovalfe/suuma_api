@@ -13,7 +13,7 @@
           integrity=sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ crossorigin=anonymous>
     <link href="{{ asset('dist/css/app.08ef8f77.css') }}" rel=preload as=style>
     <link href="{{ asset('dist/css/chunk-vendors.89cf2add.css') }}" rel=preload as=style>
-    <link href="{{ asset('dist/js/app.ad919f10.js') }}" rel=preload as=script>
+    <link href="{{ asset('dist/js/app.bb8c91e1.js') }}" rel=preload as=script>
     <link href="{{ asset('dist/js/chunk-vendors.98786b3d.js') }}" rel=preload as=script>
     <link href="{{ asset('dist/css/chunk-vendors.89cf2add.css') }}" rel=stylesheet>
     <link href="{{ asset('dist/css/app.08ef8f77.css') }}" rel=stylesheet>
@@ -22,4 +22,4 @@
 <body><noscript><strong>We're sorry but suuma doesn't work properly without JavaScript enabled. Please enable it to
         continue.</strong></noscript>
 <div id=app></div>
-<script src="{{ asset('dist/js/chunk-vendors.98786b3d.js') }}"> </script> <script src="{{ asset('dist/js/app.ad919f10.js') }}"> </script> </body> </html>
+<script src="{{ asset('dist/js/chunk-vendors.98786b3d.js') }}"> </script> <script src="{{ asset('dist/js/app.bb8c91e1.js') }}"> </script> </body> </html>
