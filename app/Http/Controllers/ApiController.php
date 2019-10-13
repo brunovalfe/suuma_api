@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Profile;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Group;
 use App\Http\Requests\RegisterAuthRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
@@ -34,13 +35,18 @@ class ApiController extends Controller
         $profile->apmat = $request->apmat;
         $user->profile()->save($profile);
 
+        // Attach minimum permissions.
+        $basic = Group::where('name', 'basic')->first();
+        $user->groups()->sync($basic);
+
         if($this->loginAfterSignUp) {
             return $this->login($request);
         }
 
         return response()->json([
            'success' => true,
-           'data' => $user
+           'data' => $user,
+           'groups' => $user->groups
         ], 200);
 
     }
