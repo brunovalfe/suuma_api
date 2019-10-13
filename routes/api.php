@@ -24,6 +24,7 @@ Route::group(['middleware' => ['auth.jwt', 'cors', 'isActive']], function(){
     Route::get('logout', 'ApiController@logout');
 
     Route::get('user', 'ApiController@getAuthUser');
+    Route::post('user/changePassword', 'ApiController@changePassword');
 
     // Basic user info
     Route::get('profile', 'ProfileController@index');

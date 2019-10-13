@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Log;
 use JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use App\Helpers\SuumaResponse;
+use Illuminate\Support\Facades\Hash;
 
 class ApiController extends Controller
 {
@@ -171,6 +172,36 @@ class ApiController extends Controller
             return false;
         }
         return true;
+    }
+
+    public function changePassword(Request $request) {
+        $last = $request->last;
+        $new = $request->new;
+
+        $user = Auth::user();
+        if (Hash::check($last, $user->password)) {
+            $user->password = bcrypt($new);
+            $user->save();
+
+            $res = new SuumaResponse(
+                200,
+                'OK',
+                '',
+                200,
+                "Contraseñas coinciden, se ha actualizado."
+            );
+
+            return response()->json($res->getResponse()[0]);
+        }
+            $res = new SuumaResponse(
+                200,
+                'ERROR',
+                'Bad password',
+                401,
+                "Por favor revisar su contraseña pasada."
+            );
+
+            return response()->json($res->getResponse()[0]);
     }
 
 }
