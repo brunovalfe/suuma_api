@@ -38,7 +38,6 @@ class FakeUsersWProfiles extends Seeder
 
             $basic_user = Group::where('name', 'basic')->first();
             $user->groups()->attach($basic_user->id);
-
         }
     }
 }

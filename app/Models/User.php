@@ -71,4 +71,8 @@ class User extends Authenticatable implements JWTSubject
             ->withPivot('role', 'isActive')
             ->withTimestamps();
     }
+
+    public function certificates(){
+        return $this->hasMany(Certificate::class)->select(["id","nombre_curso","tipo","fecha_ac","fecha_cad","duracion","user_id","estado_solicitud"]);
+    }
 }
