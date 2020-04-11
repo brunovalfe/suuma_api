@@ -63,11 +63,10 @@ Route::group(['middleware' => ['auth.jwt', 'cors', 'isActive']], function(){
     Route::patch('guards/{guard_id}/unsubscribe/{user_id}', 'GuardsController@unsubscribeUser');
 
     // Certificates
-//    Route::get('certificates/activeCertificates', 'CertificateController@showActiveCertificates');
-//    Route::get('certificates/inactiveCertificates', 'CertificateController@showInactiveCertificates');
-//    Route::get('certificates/expiredCertificates', 'CertificateController@showExpiredCertificates');
 //    Route::get('certificates/pendingCertificates', 'CertificateController@showPendingCertificates');
     Route::get('certificates', 'CertificateController@index');
     Route::get('certificates/self', 'CertificateController@myCertificates');
+    Route::patch('certificates/{id}', 'CertificateController@myCertificates');
+
     //Route::patch('certificates/{id}', 'CertificateController@update');
 });

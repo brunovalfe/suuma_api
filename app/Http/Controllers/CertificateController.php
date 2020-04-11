@@ -46,7 +46,6 @@ class CertificateController extends Controller
 
     public function index(){
         $certificates = Certificate::all();
-//            $this->user->certificates;
         $res = new SuumaResponse(
             200,'OK', '', 200, 'Todos los Certificados', $certificates
         );

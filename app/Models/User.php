@@ -73,6 +73,6 @@ class User extends Authenticatable implements JWTSubject
     }
 
     public function certificates(){
-        return $this->hasMany(Certificate::class)->select(["id","nombre_curso","tipo","fecha_ac","fecha_cad","duracion","user_id","estado_solicitud"]);
+        return $this->hasMany(Certificate::class)->select(["id","nombre_curso","tipo","fecha_ac","fecha_cad","duracion","user_id","estado_solicitud"]);//tal vez sea necesario crear una vista de detalles para ver las observaciones y fechas.
     }
 }
