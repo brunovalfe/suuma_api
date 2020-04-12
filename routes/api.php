@@ -65,6 +65,7 @@ Route::group(['middleware' => ['auth.jwt', 'cors', 'isActive']], function(){
     // Certificates
 //    Route::get('certificates/pendingCertificates', 'CertificateController@showPendingCertificates');
     Route::get('certificates', 'CertificateController@index');
+    Route::get('certificates_types', 'CertificateController@typesIndex');
     Route::get('certificates/self', 'CertificateController@myCertificates');
     Route::patch('certificates/{id}', 'CertificateController@myCertificates');
 

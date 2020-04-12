@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Helpers\SuumaResponse;
 use App\Models\Certificate;
+use App\Models\CertificateType;
 use App\Models\User;
 use Illuminate\Support\Facades\Log;
 //use Illuminate\Support\Facades\File;
@@ -48,6 +49,13 @@ class CertificateController extends Controller
         $certificates = Certificate::all();
         $res = new SuumaResponse(
             200,'OK', '', 200, 'Todos los Certificados', $certificates
+        );
+        return response()->json($res->getResponse()[0]);
+    }
+    public function typesIndex(){
+        $certificateTypes = CertificateType::all();
+        $res = new SuumaResponse(
+            200,'OK', '', 200, 'Todos los tipos de Certificados', $certificateTypes
         );
         return response()->json($res->getResponse()[0]);
     }
