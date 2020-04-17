@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CertificateType;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Guard;
@@ -137,6 +138,25 @@ class AdminPowers extends Controller
         return response()->json($res->getResponse()[0]);
     }
 
+    public function storeCertificateType(Request $request) {
+
+        $certificateType = new CertificateType();
+        $certificateType->nombre_certificado= $request->nombre_certificado;
+        $certificateType->tipo_certificado = $request->tipo_certificado;
+        $certificateType->duracion_certificado = $request->duracion_certificado;
+
+        $certificateType->save();
+
+        $res = new SuumaResponse(
+            200,
+            'OK',
+            '',
+            200,
+            "Tipo de Certificado Creado",
+            $certificateType
+        );
+        return response()->json($res->getResponse()[0]);
+    }
 
 
 }

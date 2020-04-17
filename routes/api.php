@@ -57,6 +57,8 @@ Route::group(['middleware' => ['auth.jwt', 'cors', 'isActive']], function(){
     Route::get('guards/users', 'AdminPowers@showUsersInDetail');
     Route::post('guards/{id}', 'AdminPowers@deleteGuard');
 
+    Route::post('certificates_types', 'AdminPowers@storeCertificateType');
+
     // Guards
     Route::get('guards', 'GuardsController@retrieveGuards');
     Route::patch('guards/{guard_id}/subscribe/{user_id}', 'GuardsController@subscribeUser');
